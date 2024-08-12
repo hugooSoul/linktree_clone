@@ -62,3 +62,4 @@ group :test do
 end
 
 gem "devise"
+gem 'friendly_id'

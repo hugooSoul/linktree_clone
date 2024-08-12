@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_12_150143) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_12_154231) do
   create_table "trees", force: :cascade do |t|
     t.string "name"
     t.string "x"
@@ -21,6 +21,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_150143) do
     t.string "style"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_trees_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|
