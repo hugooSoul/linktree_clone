@@ -1,9 +1,11 @@
-<%= image_tag("arbol.png", style: "width: 100px;") %>
+<%= link_to image_tag("arbol.png", style: "width: 100px;"), root_path  %>
 
-<%= link_to "Sign up", new_user_registration_path %>
+<%= link_to "Pricing", home_pricing_path %>
 
 <% if user_signed_in? %>
+  <%= link_to "My Account", edit_user_registration_path %>
   <%= link_to "Log out", destroy_user_session_path %>
 <% else %>
+  <%= link_to "Sign up", new_user_registration_path %>
   <%= link_to "Log in", new_user_session_path %>
 <% end %>

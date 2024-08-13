@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   resources :trees
   root "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -11,4 +10,11 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+
+  get "/pricing", to: "home#pricing", as: :home_pricing
 end
